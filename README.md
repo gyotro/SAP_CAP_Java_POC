@@ -6,7 +6,7 @@
 * npm add -g @sap/cds-dk
 * npm ci
 * run with:  *mvn spring-boot:run
- *optional: insert kotlin support: add dependency, kotlin version and plugin in maven pom
+* optional: insert kotlin support: add dependency, kotlin version and plugin in maven pom
 
  
 
