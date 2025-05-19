@@ -1,0 +1,11 @@
+### Create Product
+
+POST https://localhost:8080/odata/v4/AdminService/Products
+Content-Type: application/json
+Authorization: Basic cHJpdmlsZWdlZDo=
+
+{"ID": 45, "title": "My Tutorial Product", "descr": "You are doing an awesome job!"}
+
+### Read Product
+GET https://localhost:8080/odata/v4/AdminService/Products
+Authorization: Basic cHJpdmlsZWdlZDo=
