@@ -1,6 +1,7 @@
 ### Create Product
 
 POST https://localhost:8080/odata/v4/AdminService/Products
+// remember to turn into http for local testing
 Content-Type: application/json
 Authorization: Basic cHJpdmlsZWdlZDo=
 
@@ -8,4 +9,5 @@ Authorization: Basic cHJpdmlsZWdlZDo=
 
 ### Read Product
 GET https://localhost:8080/odata/v4/AdminService/Products
+// remember to turn into http for local testing
 Authorization: Basic cHJpdmlsZWdlZDo=
