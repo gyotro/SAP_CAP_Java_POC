@@ -1,3 +1,4 @@
+/*
 package com.sap.gyo.handlers;
 
 import java.util.HashMap;
@@ -26,7 +27,8 @@ public class AdminService implements EventHandler {
 
     @On(event = CqnService.EVENT_READ, entity = "AdminService.Products")
     public void onRead(CdsReadEventContext context) {
+
         context.setResult(products.values());
     }
 
-}
+}*/
