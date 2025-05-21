@@ -1,0 +1,23 @@
+{
+  "name": "Java + Kotlin + Maven DevContainer",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21"
+    },
+    "ghcr.io/devcontainers/features/maven:1": {
+      "version": "3.9.6"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",            // Java tools
+        "redhat.java",                          // Java language support
+        "pivotal.vscode-spring-boot",           // Spring Boot tools
+        "esafirm.kotlin-formatter",             // Kotlin formatter
+        "mathiasfrohlich.kotlin",               // Kotlin support
+        "2gua.rainbow-brackets"                 // Rainbow brackets
+      ]
+    }
+  }
+}
