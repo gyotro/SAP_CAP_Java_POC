@@ -11,5 +11,15 @@
 		"ghcr.io/devcontainers-extra/features/node-asdf:0": {
 			"version": "latest"
 		}
-	}
+	},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",           // Java
+        "mathiasfrohlich.kotlin",             // Kotlin
+        "tal7aouy.rainbow-bracket",              // Rainbow Brackets
+        "sapse.vscode-cds"                   // SAP CDS
+      ]
+    }
+  }
 }
