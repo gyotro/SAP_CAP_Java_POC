@@ -1,4 +1,4 @@
-using { com.sap.gyo as db } from '../db/schema';
+using { com.sap.gyo.Products as db } from '../db/schema';
 
 service AdminService {
     entity Products   as projection on db.Products;

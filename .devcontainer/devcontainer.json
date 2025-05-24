@@ -13,10 +13,10 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack",           // Java
-        "mathiasfrohlich.kotlin",             // Kotlin
-        "tal7aouy.rainbow-bracket",              // Rainbow Brackets
-        "sapse.vscode-cds",                 // SAP CDS
+        "vscjava.vscode-java-pack",
+        "mathiasfrohlich.kotlin",
+        "tal7aouy.rainbow-bracket",
+        "sapse.vscode-cds",
 		"tal7aouy.icons"
       ]
     }
