@@ -1,8 +1,19 @@
 
 ---
 spring:
-  config.activate.on-profile: default
-  sql.init.platform: h2
+  datasource:
+    url: jdbc:sqlite:cap-java.db
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+  sql:
+    init:
+      mode: always
 cds:
   data-source.auto-config.enabled: false
 ---
@@ -23,3 +34,18 @@ management:
 logging:
   level:
     root: INFO
+---
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:file::memory:?cache=shared
+    hikari:
+      max-lifetime: 0
+      maximum-pool-size: 1
+  config:
+    activate:
+      on-profile: default
+  sql:
+    init:
+      mode: always
+      platform: sqlite

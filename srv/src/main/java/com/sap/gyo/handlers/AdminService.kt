@@ -9,8 +9,8 @@ import com.sap.cds.services.handler.annotations.ServiceName
 import org.springframework.stereotype.Component
 import java.util.function.Consumer
 
-@Component
-@ServiceName("AdminService")
+//@Component
+//@ServiceName("AdminService")
 open class AdminService : EventHandler {
     private val products: MutableMap<Any?, MutableMap<String?, Any?>?> = HashMap()
 

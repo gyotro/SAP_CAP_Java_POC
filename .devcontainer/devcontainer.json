@@ -1,11 +1,9 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/alpine
 {
 	"image": "mcr.microsoft.com/devcontainers/universal:2",
 	"features": {
 		"ghcr.io/devcontainers-extra/features/maven-sdkman:2": {
 			"version": "latest",
-			"jdkVersion": "latest",
+			"jdkVersion": "21",
 			"jdkDistro": "ms"
 		},
 		"ghcr.io/devcontainers-extra/features/node-asdf:0": {
@@ -18,7 +16,8 @@
         "vscjava.vscode-java-pack",           // Java
         "mathiasfrohlich.kotlin",             // Kotlin
         "tal7aouy.rainbow-bracket",              // Rainbow Brackets
-        "sapse.vscode-cds"                   // SAP CDS
+        "sapse.vscode-cds",                 // SAP CDS
+		"tal7aouy.icons"
       ]
     }
   }
