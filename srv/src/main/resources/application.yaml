@@ -1,25 +1,42 @@
-
----
 spring:
-  config.activate.on-profile: default
-  sql.init.platform: h2
-cds:
-  data-source.auto-config.enabled: false
----
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:file::memory:?cache=shared
+    hikari:
+      max-lifetime: 0
+      maximum-pool-size: 1
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    properties:
+      hibernate:
+        format_sql: true
+  config:
+    activate:
+      on-profile: default
+  sql:
+    init:
+      mode: always
+      platform: sqlite
 management:
   endpoint:
     health:
       show-components: always
-      probes.enabled: true
+      probes:
+        enabled: true
   endpoints:
     web:
       exposure:
         include: health
   health:
-    defaults.enabled: false
-    ping.enabled: true
-    db.enabled: true
----
+    defaults:
+      enabled: false
+    ping:
+      enabled: true
+    db:
+      enabled: true
 logging:
   level:
     root: INFO

@@ -1,0 +1,24 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/devcontainers-extra/features/maven-sdkman:2": {
+			"version": "latest",
+			"jdkVersion": "21",
+			"jdkDistro": "ms"
+		},
+		"ghcr.io/devcontainers-extra/features/node-asdf:0": {
+			"version": "latest"
+		}
+	},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",           // Java
+        "mathiasfrohlich.kotlin",             // Kotlin
+        "tal7aouy.rainbow-bracket",              // Rainbow Brackets
+        "sapse.vscode-cds",                 // SAP CDS
+		"tal7aouy.icons"
+      ]
+    }
+  }
+}
