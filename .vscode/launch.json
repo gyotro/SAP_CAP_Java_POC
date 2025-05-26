@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug CAP Java App",
+      "request": "launch",
+      "mainClass": "com.sap.gyo.ApplicationKt",   // replace with your actual main class
+      "projectName": "capJavaPOC",        // your project name from `.project` or `pom.xml`
+      "args": "",                                // optional args
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

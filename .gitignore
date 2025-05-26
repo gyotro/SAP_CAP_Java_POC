@@ -26,6 +26,6 @@ hs_err*
 *.tgz
 *.iml
 
-.vscode
+//.vscode
 .idea
 .reloadtrigger
