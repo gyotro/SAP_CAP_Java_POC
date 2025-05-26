@@ -1,3 +1,16 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic"
+  "files.associations": {
+    "*.cds": "cds"
+  },
+  "[cds]": {
+    "editor.defaultFormatter": "sapse.vscode-cds",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",  // for other files like .ts/.json
+  "cds.compiler.version": "latest",  // optional: ensures you use the newest CDS compiler
+  "cds.deploy.debug": false,          // optional: disables debug logs when running cds deploy
+  "java.compile.nullAnalysis.mode": "automatic"
 }
