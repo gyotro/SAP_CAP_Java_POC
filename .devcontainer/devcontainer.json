@@ -18,9 +18,10 @@
         "mathiasfrohlich.kotlin",
         "tal7aouy.rainbow-bracket",
         "sapse.vscode-cds",
-        "tal7aouy.icons"
+        "tal7aouy.icons",
+        "humao.rest-client"
       ]
     }
   },
-  "postCreateCommand": "node -v"
+  "postCreateCommand": "npm install -g @sap/cds && node -v && cds -v"
 }
