@@ -19,7 +19,13 @@
         "tal7aouy.rainbow-bracket",
         "sapse.vscode-cds",
         "tal7aouy.icons",
-        "humao.rest-client"
+        "humao.rest-client",
+        "fwcd.kotlin",
+        "esafirm.kotlin-formatter",
+        "sethjones.kotlin-on-vscode",
+        "vmware.vscode-spring-boot",
+        "vmware.vscode-boot-dev-pack",
+        "sapse.sap-ux-help-extension"
       ]
     }
   },
