@@ -7,7 +7,7 @@
 			"jdkDistro": "ms"
 		},
 		"ghcr.io/devcontainers-extra/features/node-asdf:0": {
-			"version": "latest"
+			"version": "20"
 		}
 	},
   "customizations": {
