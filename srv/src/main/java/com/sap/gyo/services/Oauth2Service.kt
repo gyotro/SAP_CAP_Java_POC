@@ -7,6 +7,7 @@ import io.ktor.http.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 
@@ -18,6 +19,14 @@ open class OAuthTokenService(
     @Value("\${concur.oauth.client-secret}") private val clientSecret: String,
     @Value("\${concur.oauth.init_refresh_token}") private val refreshToken: String
 ) {
+    private val logger = LoggerFactory.getLogger(OAuthTokenService::class.java)
+    init {
+        logger.info("Initializing OAuth Token Service...\n" +
+                "tokenUrl: $tokenUrl\n" +
+                "clientId: $clientId\n" +
+                "clientSecret: $clientSecret\n" +
+                "refreshToken: $refreshToken")
+    }
 
     @Serializable
     data class TokenResponse(
@@ -42,7 +51,7 @@ open class OAuthTokenService(
             ?: throw IllegalStateException("No refresh token returned")
     }
 
-    suspend fun getAccessTokenFromRefreshToken(): String {
+    suspend fun getAccessToken(): String {
         val refreshToken = getRefreshToken()
         val response: HttpResponse = httpClient.submitForm(
             url = tokenUrl,

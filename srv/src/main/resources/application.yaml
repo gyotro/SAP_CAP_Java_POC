@@ -48,5 +48,5 @@ concur:
     token-url: https://eu2.api.concursolutions.com/oauth2/v0/token
     client-id: ${CONCUR_CLIENT_ID}
     client-secret: ${CONCUR_CLIENT_SECRET}
-    refresh-token: ${CONCUR_REFRESH_TOKEN}
+    init_refresh_token: ${CONCUR_REFRESH_TOKEN}
 

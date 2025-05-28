@@ -8,4 +8,5 @@ entity User : managed {
     lastName : String;
     empID : String(6);
     approver : String(6);
+    loginId : String;
 }
