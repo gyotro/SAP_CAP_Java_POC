@@ -49,4 +49,6 @@ concur:
     client-id: ${CONCUR_CLIENT_ID}
     client-secret: ${CONCUR_CLIENT_SECRET}
     init_refresh_token: ${CONCUR_REFRESH_TOKEN}
+  user:
+    api-url: https://eu2.api.concursolutions.com/profile/identity/v4/Users
 

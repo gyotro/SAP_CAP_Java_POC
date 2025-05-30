@@ -1,7 +1,7 @@
 package com.sap.gyo.handlers
 
 import com.sap.cds.ql.CQL
-import com.sap.cds.reflect.CdsService
+import com.sap.cds.ql.Upsert
 import com.sap.cds.services.cds.CdsReadEventContext
 import com.sap.cds.services.cds.CqnService
 import com.sap.cds.services.handler.EventHandler
@@ -14,11 +14,12 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import java.util.*
 
+
 @Component
 @ServiceName("AdminUser")
 open class AdminUserHandler(
     private val db: PersistenceService,
-    private val concurUserService: ConcurUserService
+    private val concurUserService: ConcurUserService,
 ) : EventHandler {
 
     private val log = LoggerFactory.getLogger(AdminUserHandler::class.java)
@@ -28,16 +29,23 @@ open class AdminUserHandler(
         log.info("Executing beforeReadUsers...")
         val concurUsers = runBlocking { concurUserService.getUsers() }
 
-        val upsertedUsers = concurUsers.map {
-            User.create().apply {
-                userId = UUID.fromString(it.id)
-                name = it.name.givenName
-                lastName = it.name.familyName
-                empID = it.extension.employeeNumber
-                approver = "000001" // dummy or extracted value
-            }
+        val upsertedUsers = mutableListOf<HashMap<String, Any>>()
+
+        concurUsers.forEach { concurUser ->
+            val user: HashMap<String, Any> = hashMapOf(
+                "userId" to concurUser.id,
+                "name" to concurUser.name.givenName,
+                "lastName" to concurUser.name.familyName,
+                "empID" to concurUser.enterpriseExtension.employeeNumber,
+                "loginId" to concurUser.userName,
+                "approver" to ""
+            )
+            upsertedUsers.add(user)
         }
 
-        db.run { CQL.upsert(upsertedUsers) }
+        val upsert = Upsert.into("AdminUser.User").entries(upsertedUsers)
+        val result = db.run { upsert }
+
+
     }
 }
