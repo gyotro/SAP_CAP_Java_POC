@@ -1,6 +1,5 @@
 package com.sap.gyo.handlers
 
-import com.sap.cds.ql.CQL
 import com.sap.cds.ql.Upsert
 import com.sap.cds.services.cds.CdsReadEventContext
 import com.sap.cds.services.cds.CqnService

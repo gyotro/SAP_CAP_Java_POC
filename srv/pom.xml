@@ -15,8 +15,11 @@
             <id>ktor-eap</id>
             <url>https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev</url>
         </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
     </repositories>
-
 
     <parent>
         <artifactId>capJavaPOC-parent</artifactId>
@@ -49,6 +52,11 @@
             <version>${kotlin.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-serialization</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
@@ -77,19 +85,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
         <dependency>
             <groupId>io.ktor</groupId>
             <artifactId>ktor-client-core-jvm</artifactId>
             <version>${ktor.version}</version>
         </dependency>
-
         <dependency>
             <groupId>io.ktor</groupId>
-            <artifactId>ktor-client-okhttp</artifactId>
+            <artifactId>ktor-client-okhttp-jvm</artifactId>
             <version>${ktor.version}</version>
         </dependency>
-
         <dependency>
             <groupId>io.ktor</groupId>
             <artifactId>ktor-client-content-negotiation-jvm</artifactId>
@@ -100,23 +105,15 @@
             <artifactId>ktor-serialization-kotlinx-json-jvm</artifactId>
             <version>${ktor.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.jetbrains.kotlinx</groupId>
             <artifactId>kotlinx-serialization-json</artifactId>
             <version>${kotlinx.serialization.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.ktor</groupId>
-            <artifactId>ktor-client-okhttp-jvm</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -145,6 +142,13 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-serialization</artifactId>
+                        <version>${kotlin.version}</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -160,10 +164,10 @@
                     </execution>
                 </executions>
                 <configuration>
-       <!--              <compilerPlugins>
+                    <compilerPlugins>
                         <plugin>kotlinx-serialization</plugin>
                     </compilerPlugins>
- -->                    <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
+                    <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
                 </configuration>
             </plugin>
             <plugin>

@@ -20,12 +20,10 @@ open class OAuthTokenService(
     @Value("\${concur.oauth.init_refresh_token}") private val refreshToken: String
 ) {
     private val logger = LoggerFactory.getLogger(OAuthTokenService::class.java)
-    init {
-        logger.info("Initializing OAuth Token Service...\n" +
-                "tokenUrl: $tokenUrl\n" +
-                "clientId: $clientId\n" +
-                "clientSecret: $clientSecret\n" +
-                "refreshToken: $refreshToken")
+    private val json = Json {
+        ignoreUnknownKeys = true
+        prettyPrint = true
+        isLenient = true
     }
 
     @Serializable
@@ -47,7 +45,7 @@ open class OAuthTokenService(
             }
         )
         val jsonBody = response.bodyAsText()
-        return Json.decodeFromString<TokenResponse>(jsonBody).refreshToken
+        return json.decodeFromString<TokenResponse>(jsonBody).refreshToken
             ?: throw IllegalStateException("No refresh token returned")
     }
 
@@ -63,6 +61,7 @@ open class OAuthTokenService(
             }
         )
         val jsonBody = response.bodyAsText()
-        return Json.decodeFromString<TokenResponse>(jsonBody).accessToken
+        return json.decodeFromString<TokenResponse>(jsonBody).accessToken
     }
 }
+

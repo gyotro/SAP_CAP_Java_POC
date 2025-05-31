@@ -1,7 +1,7 @@
 package com.sap.gyo.entities
 
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 @Serializable
 data class ConcurUserEntity(
@@ -14,16 +14,13 @@ data class ConcurUserEntity(
     val nickName: String? = null,
     val dateOfBirth: String? = null,
     val preferredLanguage: String? = null,
-
-    val emails: List<Email>,
-    val phoneNumbers: List<PhoneNumber>,
-    val emergencyContacts: List<EmergencyContact>,
-    val addresses: List<Address>,
-    val schemas: List<String>,
+    val emails: List<Email> = emptyList(),
+    val phoneNumbers: List<PhoneNumber> = emptyList(),
+    val emergencyContacts: List<EmergencyContact> = emptyList(),
+    val addresses: List<Address> = emptyList(),
+    val schemas: List<String> = emptyList(),
     val name: Name,
     val meta: Meta,
-
-    @SerialName("localeOverrides")
     val localeOverrides: LocaleOverrides,
 
     @SerialName("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User")
@@ -92,7 +89,7 @@ data class EmergencyContact(
     val postalCode: String? = null,
     val name: String,
     val locality: String? = null,
-    val phones: List<String>,
+    val phones: List<String> = emptyList(),
     val region: String? = null,
     val relationship: String
 )

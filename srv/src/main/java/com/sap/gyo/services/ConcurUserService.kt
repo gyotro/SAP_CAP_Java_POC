@@ -15,6 +15,11 @@ open class ConcurUserService(
     private val tokenService: OAuthTokenService,
     @Value("\${concur.user.api-url}") private val userApiUrl: String,
 ) {
+    private val json = Json {
+        ignoreUnknownKeys = true
+        prettyPrint = true
+        isLenient = true
+    }
 
     suspend fun getUsers(): List<ConcurUserEntity> {
         // Step 1: Get bearer token from refresh token
@@ -29,9 +34,7 @@ open class ConcurUserService(
         }.body()
 
         // Step 3: Deserialize JSON array into list of ConcurUser
-        val concurUsers: List<ConcurUserEntity> = Json {
-            ignoreUnknownKeys = true
-        }.decodeFromString(response)
+        val concurUsers: List<ConcurUserEntity> = json.decodeFromString(response)
         return concurUsers
     }
 }
