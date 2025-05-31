@@ -1,6 +1,7 @@
 package com.sap.gyo.services
 
 import com.sap.gyo.entities.ConcurUserEntity
+import com.sap.gyo.entities.ScimUserResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -21,7 +22,7 @@ open class ConcurUserService(
         isLenient = true
     }
 
-    suspend fun getUsers(): List<ConcurUserEntity> {
+    suspend fun getUsers(): ScimUserResponse {
         // Step 1: Get bearer token from refresh token
         val accessToken = tokenService.getAccessToken()
 
@@ -34,7 +35,7 @@ open class ConcurUserService(
         }.body()
 
         // Step 3: Deserialize JSON array into list of ConcurUser
-        val concurUsers: List<ConcurUserEntity> = json.decodeFromString(response)
+        val concurUsers: ScimUserResponse = json.decodeFromString(response)
         return concurUsers
     }
 }
