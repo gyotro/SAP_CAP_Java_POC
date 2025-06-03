@@ -14,7 +14,6 @@ import com.sap.gyo.services.ConcurUserService
 import kotlinx.coroutines.runBlocking
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
-import org.springframework.transaction.annotation.Transactional
 import java.util.*
 
 
