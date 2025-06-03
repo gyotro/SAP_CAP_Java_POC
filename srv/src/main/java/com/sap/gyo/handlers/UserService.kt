@@ -1,13 +1,11 @@
 package com.sap.gyo.handlers
 
-import com.sap.cds.ql.Insert
 import com.sap.cds.ql.Upsert
 import com.sap.cds.ql.cqn.CqnUpsert
 import com.sap.cds.services.cds.CdsReadEventContext
 import com.sap.cds.services.cds.CqnService
 import com.sap.cds.services.handler.EventHandler
 import com.sap.cds.services.handler.annotations.Before
-import com.sap.cds.services.handler.annotations.On
 import com.sap.cds.services.handler.annotations.ServiceName
 import com.sap.cds.services.persistence.PersistenceService
 import com.sap.gyo.services.ConcurUserService
@@ -49,9 +47,9 @@ open class AdminUserHandler(
             upsertedUsers.add(user)
         }
 
-        val upsert: CqnUpsert = Upsert.into("com.sap.gyo.User").entries(upsertedUsers)
-        val result = db.run { upsert }
-        log.info("Upsert result: $result")
+      //  val upsert: CqnUpsert = Upsert.into(gen.com.sap.gyo.User_::class.java).entries(upsertedUsers)
+      //  val result = db.run { upsert }
+      //  log.info("Upsert result: $result")
 
         }
     }
